@@ -332,6 +332,26 @@
               </ul>
           </li>
           <li>
+            <a href="#students-camps" class="toc-h1 toc-link" data-title="Students Camps">Students Camps</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-students-camps" class="toc-h2 toc-link" data-title="Get All Students Camps">Get All Students Camps</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-specific-students-camp" class="toc-h2 toc-link" data-title="Get a Specific Students Camp">Get a Specific Students Camp</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-students-camp" class="toc-h2 toc-link" data-title="Create a Students Camp">Create a Students Camp</a>
+                  </li>
+                  <li>
+                    <a href="#update-students-camp" class="toc-h2 toc-link" data-title="Update students-camp">Update students-camp</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-specific-students-camp" class="toc-h2 toc-link" data-title="Delete a Specific students-camp">Delete a Specific students-camp</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
@@ -511,6 +531,230 @@ Remember — a happy kitten is an authenticated kitten!
 <h3 id='http-request-3'>HTTP Request</h3>
 <p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the kitten to delete</td>
+</tr>
+</tbody></table>
+<h1 id='students-camps'>Students Camps</h1><h2 id='get-all-students-camps'>Get All Students Camps</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
+<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://yolo-study.com/api/v1/adminpanel/students_camps"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Інтенсив з граматики"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"course"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Інтенсив з англійської „Дази&amp;Діди”"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"course_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"aasm_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"confirmed"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"teacher"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Христина Тинкалюк"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"teacher_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"users_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"finished_lessons"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Інтенсив з граматики 04.06"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"course"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Інтенсив з англійської „Дази&amp;Діди”"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"course_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"aasm_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unconfirmed"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"teacher"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Христина Тинкалюк"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"teacher_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"users_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"finished_lessons"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint retrieves all students camps.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://yolo-study.com/api/v1/adminpanel/students_camps</code></p>
+<h2 id='get-a-specific-students-camp'>Get a Specific Students Camp</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
+<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://yolo-study.com/api/v1/adminpanel/students_camps/3"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"students_camp"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Інтенсив з граматики"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"course"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Інтенсив з англійської „Дази&amp;Діди”"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"course_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"aasm_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"confirmed"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">210</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tadigitalagency@gmail.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ганна"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"surname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Шевченко"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/images/original/missing.svg"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"lessons_left"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1201</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"markovych@icloud.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mykola"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"surname"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/images/original/missing.svg"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"lessons_left"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint retrieves a specific students-camp.</p>
+
+<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://yolo-study.com/api/v1/adminpanel/students_camps/&lt;ID&gt;</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the students-camp to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='create-a-students-camp'>Create a Students Camp</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
+<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://yolo-study.com/api/v1/adminpanel/students_camps"</span> <span class="se">\</span>
+  <span class="nt">-X</span> DELETE <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Інтенсив з граматики"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"course"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Інтенсив з англійської „Дази&amp;Діди”"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"course_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"aasm_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unconfirmed"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"teacher"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Наталія Слободян"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"teacher_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"users_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"finished_lessons"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint creates a specific students-camp.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://yolo-study.com/api/v1/adminpanel/students_camps</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>sub-parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>students_camp</td>
+<td>name</td>
+<td>name of the students-camp</td>
+</tr>
+<tr>
+<td>-</td>
+<td>teacher_id</td>
+<td>Id of the assigned teacher</td>
+</tr>
+<tr>
+<td>-</td>
+<td>course_id</td>
+<td>Id of the assigned course</td>
+</tr>
+</tbody></table>
+<h2 id='update-students-camp'>Update students-camp</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://yolo-study.com/api/v1/adminpanel/students_camps/2"</span> <span class="se">\</span>
+  <span class="nt">-X</span> PATCH <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Інтенсив з граматики"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"course"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Інтенсив з англійської „Дази&amp;Діди”"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"course_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"aasm_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unconfirmed"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"teacher"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Наталія Слободян"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"teacher_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"users_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"finished_lessons"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint updates a specific students-camp</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PATCH https://yolo-study.com/api/v1/adminpanel/students_camps/2</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>sub-parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>students_camp</td>
+<td>name</td>
+<td>name of the students-camp</td>
+</tr>
+<tr>
+<td>-</td>
+<td>teacher_id</td>
+<td>Id of the assigned teacher</td>
+</tr>
+<tr>
+<td>-</td>
+<td>course_id</td>
+<td>Id of the assigned course</td>
+</tr>
+</tbody></table>
+<h2 id='delete-a-specific-students-camp'>Delete a Specific students-camp</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
+<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://yolo-study.com/api/v1/adminpanel/students_camps/2"</span> <span class="se">\</span>
+  <span class="nt">-X</span> DELETE <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint deletes a specific kitten.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>DELETE hhttps://yolo-study.com/api/v1/adminpanel/students_camps/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-4'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
